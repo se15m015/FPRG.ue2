@@ -26,6 +26,34 @@ public class Main {
         System.out.println("--------Integer--------");
         System.out.println("resultIntegerPlusOne: " + resultIntegerPlusOne);
 
+        //String
+        ArrayList<String> inputString = new ArrayList<String>(){{
+            add("hello ");
+            add("super ");
+            add("awesome ");
+            add("functional ");
+            add("world!");
+        }};
+
+        String combinedResult = fold((x,y) -> ( x + y), "robot: ", inputString);
+
+        System.out.println("--------String--------");
+        System.out.println(combinedResult);
+
+        //float
+        ArrayList<Float> inputFloats = new ArrayList<Float>(){{
+            add(3.4f);
+            add(21.4f);
+            add(0.6f);
+            add(1.1f);
+            add(2.0043f);
+        }};
+
+        Float floatResult = fold((x,y) -> ( x * y), 1f, inputFloats);
+
+        System.out.println("--------Float--------");
+        System.out.println(floatResult);
+
     }
 
     private static <I> I fold(Ifold<I> func, I initialValue, ArrayList<I> input){
